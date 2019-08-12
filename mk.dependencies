@@ -10,5 +10,9 @@
   {
     "repository": "android_hardware_sony_simdetect",
     "target_path": "hardware/sony/simdetect"
+  },
+  {
+    "repository": "android_vendor_sony_nile-common",
+    "target_path": "vendor/sony/nile-common"
   }
 ]
