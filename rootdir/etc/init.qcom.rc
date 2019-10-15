@@ -154,8 +154,6 @@ on post-fs-data
     # Create folder for mm-qcamera-daemon
     mkdir /data/vendor/camera 0770 camera camera
 
-    mkdir /data/media 0770 media_rw media_rw
-    chown media_rw media_rw /data/media
 
     # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
@@ -200,21 +198,18 @@ on post-fs-data
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
 
-    # Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
-    mkdir /data/system 0775 system system
-
-    # Create directory for cta
-    mkdir /data/system/cta 0700 root root
-
-    # Create directories for preloads
-    mkdir /data/preloads 0775 system system
-    mkdir /data/preloads/file_cache 0775 system system
-    mkdir /data/preloads/file_cache/deletable-app 0775 system system
-
     # Create directories for Location services
     mkdir /data/vendor/location 0770 gps gps
     mkdir /data/vendor/location/mq 0770 gps gps
     mkdir /data/vendor/location/xtwifi 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/mq 0770 gps gps
+    mkdir /dev/socket/location/xtra 0770 gps gps
+    mkdir /data/vendor/location-partner 0770 gps gps
+    mkdir /data/vendor/location-partner/dre 0770 gps gps
+    mkdir /data/vendor/location-partner/ppe 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/ehub 0770 gps gps
 
     # Create directory from IMS services
     mkdir /data/shared 0755
@@ -223,9 +218,6 @@ on post-fs-data
     # Create directory for FOTA
     mkdir /data/fota 0771
     chown system system /data/fota
-
-    # Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
 
     # Create /data/vendor/time folder for time-services
     mkdir /data/vendor/time 0700 system system
@@ -282,8 +274,8 @@ on post-fs-data
     mkdir /data/vendor/qti-logkit/logdata 2750 system shell
 
     # Create SWAP related dirs
-    mkdir /data/system/swap 0770 root system
-    chmod 2770 /data/system/swap
+    mkdir /data/vendor/swap 0770 root system
+    chmod 2770 /data/vendor/swap
 
     # Set aggressive read ahead for dm-0 and dm-1 during boot up
     write /sys/block/dm-0/queue/read_ahead_kb 2048
@@ -291,9 +283,6 @@ on post-fs-data
 
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
-
-    # Create FTM_AP dir for factory test
-    mkdir /data/FTM_AP 0775 system system
 
     # Qnovo
     mkdir /mnt/qns 0750 oem_2985 oem_2985
@@ -470,7 +459,6 @@ on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
 
-    start charge-mode-sh
     start qcom-post-boot
     start hvdcp_opti
 
@@ -530,10 +518,6 @@ service charger /charger
     class charger
     group system graphics
     seclabel u:r:healthd:s0
-
-service charge-mode-sh /vendor/bin/init.charge.mode.sh
-    user root
-    oneshot
 
 service cnd /vendor/bin/cnd
     class main
