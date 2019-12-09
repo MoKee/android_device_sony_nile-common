@@ -190,6 +190,9 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Root
+BOARD_ROOT_EXTRA_FOLDERS := lta-label
+
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_RIL_VARIANT := caf
@@ -203,7 +206,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware_mnt:/firmware
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2019-08-01
+VENDOR_SECURITY_PATCH := 2019-11-01
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
