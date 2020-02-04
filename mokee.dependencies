@@ -1,5 +1,9 @@
 [
   {
+    "repository": "android_vendor_sony_nile-common",
+    "target_path": "vendor/sony/nile-common"
+  },
+  {
     "repository": "android_kernel_sony_sdm660",
     "target_path": "kernel/sony/sdm660"
   },
