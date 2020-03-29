@@ -359,8 +359,6 @@ on early-boot
     chown system system /mnt/vendor/persist/sensors/registry/config
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
-    setprop ro.alarm_boot false
-
 on boot
     # Access permission for Bluetooth
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -455,8 +453,6 @@ on boot
     chmod 0666 /sys/devices/soc/soc:fpc1020/device_prepare
     chmod 0666 /sys/devices/soc/soc:egistec/device_prepare
 
-    setprop persist.test.fp_existed 5
-
 on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
@@ -536,7 +532,7 @@ service cnss-daemon /vendor/bin/cnss-daemon -n -l
     user system
     group system inet net_admin wifi
 
-on property:sys.powerctl=*
+on property:sys.shutdown.requested=*
     stop cnss-daemon
 
 service devstart_sh /vendor/bin/init.qcom.devstart.sh
