@@ -99,11 +99,32 @@ start_msm_irqbalance_msmnile()
          fi
 }
 
+start_msm_irqbalance_kona()
+{
+         if [ -f /vendor/bin/msm_irqbalance ]; then
+                start vendor.msm_irqbalance
+         fi
+}
+
+start_msm_irqbalance_lito()
+{
+         if [ -f /vendor/bin/msm_irqbalance ]; then
+                start vendor.msm_irqbalance
+         fi
+}
+
+start_msm_irqbalance_atoll()
+{
+         if [ -f /vendor/bin/msm_irqbalance ]; then
+                start vendor.msm_irqbalance
+         fi
+}
+
 start_msm_irqbalance660()
 {
 	if [ -f /vendor/bin/msm_irqbalance ]; then
 		case "$platformid" in
-		    "317" | "324" | "325" | "326" | "345" | "346")
+		    "317" | "321" | "324" | "325" | "326" | "336" | "345" | "346" | "360" | "393")
 			start vendor.msm_irqbalance;;
 		    "318" | "327" | "385")
 			start vendor.msm_irqbl_sdm630;;
@@ -267,7 +288,7 @@ case "$target" in
                   ;;
         esac
         ;;
-    "msm8994" | "msm8992" | "msm8998" | "apq8098_latv" | "sdm845" | "sdm710" | "qcs605" | "sm6150" | "trinket")
+    "msm8994" | "msm8992" | "msm8998" | "apq8098_latv" | "sdm845" | "sdm710" | "qcs605" | "sm6150" | "trinket" | "bengal")
         start_msm_irqbalance
         ;;
     "msm8996")
@@ -296,6 +317,15 @@ case "$target" in
         ;;
     "msmnile")
         start_msm_irqbalance_msmnile
+        ;;
+    "kona")
+        start_msm_irqbalance_kona
+        ;;
+    "lito")
+        start_msm_irqbalance_lito
+        ;;
+    "atoll")
+        start_msm_irqbalance_atoll
         ;;
     "msm8937")
         start_msm_irqbalance_8939
