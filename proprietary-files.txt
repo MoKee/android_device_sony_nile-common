@@ -424,6 +424,14 @@ vendor/lib64/libvpplibrary.so
 -vendor/lib/libgpustats.so
 -vendor/lib64/libgpustats.so
 
+# Modem switcher
+bin/sony-modem-switcher:vendor/bin/sony-modem-switcher
+etc/init/init.sony-modem-switcher.rc:vendor/etc/init/init.sony-modem-switcher.rc
+lib64/libMiscTaWrapper.so:vendor/lib64/libMiscTaWrapper.so
+vendor/bin/hw/vendor.somc.hardware.modemswitcher@1.0-service
+vendor/etc/init/vendor.somc.hardware.modemswitcher@1.0-service.rc
+vendor/lib64/vendor.somc.hardware.modemswitcher@1.0.so
+
 # NFC
 vendor/firmware/libpn553_fw.so:vendor/lib/libpn553_fw.so
 
@@ -572,7 +580,6 @@ vendor/etc/init/ipacm-diag.rc
 vendor/etc/init/netmgrd.rc
 vendor/etc/init/port-bridge.rc
 vendor/etc/init/qcrild.rc
-vendor/lib/libdevice_security_vendor.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libnetmgr_common.so
 vendor/lib/libnlnetmgr.so
@@ -607,7 +614,6 @@ vendor/lib/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 vendor/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/lib/vendor.somc.hardware.radio@1.0.so
 vendor/lib64/libconfigdb.so
-vendor/lib64/libdevice_security_vendor.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so

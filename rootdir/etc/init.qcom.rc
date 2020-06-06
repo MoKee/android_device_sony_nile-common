@@ -579,11 +579,19 @@ on property:vendor.radio.multisim.config=*
     setprop persist.radio.multisim.config ${vendor.radio.multisim.config}
 
 on property:vendor.radio.multisim.config=ss
+    setprop persist.vendor.radio.block_allow_data 1
     enable vendor.qcrild
 
 on property:vendor.radio.multisim.config=dsds
+    setprop persist.vendor.radio.block_allow_data 0
     enable vendor.qcrild
     enable vendor.qcrild2
+
+on property:persist.vendor.somc.cust.modem0=*
+    setprop persist.somc.cust.modem0 ${persist.vendor.somc.cust.modem0}
+
+on property:persist.vendor.somc.cust.modem1=*
+    setprop persist.somc.cust.modem1 ${persist.vendor.somc.cust.modem1}
 
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
